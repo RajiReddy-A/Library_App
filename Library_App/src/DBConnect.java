@@ -20,8 +20,8 @@ public class DBConnect {
 		try {
 			String query = "select * from details";
 			rs = st.executeQuery(query);
-			System.out.println(rs);
-			System.out.println("From the database:");
+			//System.out.println(rs);
+			//System.out.println("From the database:");
 			/**
 			while(rs.next()){
 				String bookName = rs.getString("bookName");

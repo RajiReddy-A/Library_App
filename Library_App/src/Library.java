@@ -20,6 +20,9 @@ import java.sql.ResultSet;
 import java.util.*;
 
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 
 public class Library {
@@ -44,15 +47,15 @@ public class Library {
 				try {
 					DBConnect connect = new DBConnect();
 					resultSetData = connect.getData();
-					System.out.println("resultSetData in main is below");
+					//System.out.println("resultSetData in main is below");
 					
 					while(resultSetData.next()){
-						System.out.println(resultSetData);
+						//System.out.println(resultSetData);
 						String bookName = resultSetData.getString("bookName");
 						String isWith = resultSetData.getString("isWith");
-						System.out.println(bookName + "is with" + isWith);
+						//System.out.println(bookName + "is with" + isWith);
 						allBooks.add(bookName);
-						System.out.println(isWith);
+						//System.out.println(isWith);
 						if(isWith.equals("library")){
 							booksAvailable.add(bookName);
 						}
@@ -80,12 +83,12 @@ public class Library {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 625, 434);
+		frame.setBounds(100, 100, 755, 493);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 42, 578, 317);
+		tabbedPane.setBounds(10, 93, 719, 336);
 		frame.getContentPane().add(tabbedPane);
 		
 		JPanel panel = new JPanel();
@@ -94,7 +97,7 @@ public class Library {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(Color.WHITE, 5));
-		panel_3.setBounds(10, 11, 534, 267);
+		panel_3.setBounds(10, 11, 694, 337);
 		panel.add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -118,14 +121,20 @@ public class Library {
 		textBook.setColumns(10);
 		
 		JLabel lblName = new JLabel("Name");
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setBounds(87, 48, 86, 20);
 		panel_3.add(lblName);
 		
 		JLabel lblMobile = new JLabel("Mobile");
+		lblMobile.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMobile.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMobile.setBounds(87, 96, 86, 27);
 		panel_3.add(lblMobile);
 		
 		JLabel lblBook = new JLabel("Book");
+		lblBook.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblBook.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBook.setBounds(87, 148, 73, 20);
 		panel_3.add(lblBook);
 		
@@ -172,14 +181,20 @@ public class Library {
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("NAME");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(83, 41, 67, 33);
 		panel_1.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("MOBILE");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_1.setBounds(83, 85, 67, 33);
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblBook_1 = new JLabel("Book");
+		lblBook_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBook_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblBook_1.setBounds(83, 129, 67, 33);
 		panel_1.add(lblBook_1);
 		
@@ -211,7 +226,7 @@ public class Library {
 					DBConnect connect = new DBConnect();
 					connect.setData(bookReturned, userName, mobile);
 					booksAvailable.add(bookReturned);
-					System.out.println(booksAvailable);
+					//System.out.println(booksAvailable);
 					JOptionPane.showMessageDialog(null, "THANK YOU!");
 				}
 				else
@@ -240,7 +255,7 @@ public class Library {
 		
 		JTextArea txtrClickRefresh = new JTextArea();
 		txtrClickRefresh.setText("CLICK REFRESH!!!");
-		txtrClickRefresh.setBounds(10, 11, 421, 241);
+		txtrClickRefresh.setBounds(10, 11, 553, 241);
 		panel_2.add(txtrClickRefresh);
 		
 		JButton btnRefresh = new JButton("REFRESH");
@@ -259,6 +274,12 @@ public class Library {
 		});
 		btnRefresh.setBounds(179, 263, 89, 23);
 		panel_2.add(btnRefresh);
+		
+		JLabel lblLibraryRecords = DefaultComponentFactory.getInstance().createTitle("Library Records");
+		lblLibraryRecords.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblLibraryRecords.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLibraryRecords.setBounds(211, 28, 273, 40);
+		frame.getContentPane().add(lblLibraryRecords);
 		//textArea.setText(allBooks);
 		
 	}
