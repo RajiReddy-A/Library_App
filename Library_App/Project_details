@@ -1,0 +1,33 @@
+Description:
+
+	This app is useful to maintain records in a library by tracking the books available, people who borrowed the books and their mobile numbers.
+
+Software used:
+
+- Apache 2.4.29 Win64 --> https://www.apachelounge.com/download/
+- mysql as database
+- JDBC driver to connect java with database --> https://dev.mysql.com/downloads/connector/j/5.1.html
+- PHP 7.1 (7.1.12VC14 x64 Thread Safe) --> http://windows.php.net/download/
+- phpmyadmin 4.7.6 - Administration tool for mysql -->  https://www.phpmyadmin.net/
+- Eclipse IDE (luna service release version 4.4.1)
+
+MySql database details:
+
+Database name: librarydb
+Table name:    details
+Sample data:
+<---
+			bookName							author							isWith				mobile	
+		The Hunger Games					Suzanne Collins						library		
+		To Kill a Mockingbird				Harper Lee							John				9876543210
+		The Book Thief						Markus Zusak						library		
+		Life of Pi							Yann Martel							library		
+		The Adventures of Sherlock Holmes	Arthur Conan Doyle					library		
+--->
+
+NOTE: When the project is moved to another PC, database username and password should be updated in DBConnect.java file,
+i.e. Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/librarydb?autoReconnect=true&useSSL=false","root","abcd");
+above line should be updated to
+Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/librarydb?autoReconnect=true&useSSL=false","<new username","new password");
+
+Github repository: https://github.com/RajiReddy-A/Library_App.git		
