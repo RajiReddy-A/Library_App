@@ -25,9 +25,15 @@ Sample data:
 		The Adventures of Sherlock Holmes	Arthur Conan Doyle					library		
 --->
 
+HOW TO RUN THE APP:
+
+After installing the required software mentioned above, open eclipse-->click import-->General-->Existing projects into workspace-->Next-->Select archive file-->(Browse to the target zip file)-->Refresh-->(select the contents shown)-->Finish
+
 NOTE: When the project is moved to another PC, database username and password should be updated in DBConnect.java file,
 i.e. Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/librarydb?autoReconnect=true&useSSL=false","root","abcd");
 above line should be updated to
 Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/librarydb?autoReconnect=true&useSSL=false","<new username","new password");
+
+To run the app,select Library.file in eclipse and click 'run as java application'
 
 Github repository: https://github.com/RajiReddy-A/Library_App.git		
